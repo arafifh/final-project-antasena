@@ -19,3 +19,6 @@ Route::get('/', function () {
 Route::get('/form', function () {
     return view('form');
 });
+Route::get('/results', function () {
+    return view('results');
+});
