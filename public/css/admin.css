@@ -1,86 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
-* {
-    font-family: "Poppins";
-}
-
-body {
-    background-color: #bfb1d3;
-}
-
-.header {
-    overflow: hidden;
-    background: linear-gradient(
-        151.76deg,
-        #bfb1d3 -27.79%,
-        #bfb1d3 -27.77%,
-        #631acb 65.96%,
-        #462d69 96.08%
-    );
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
-    border-radius: 0px;
-    padding: 20px 10px;
-}
-
-.header img.logo,
-.header img.cars,
-h2.title {
-    display: inline-block;
-    margin: 0 auto;
-}
-
-.header img.logo {
-    width: 100px;
-}
-
-h2.title {
-    color: white;
-}
-
-.header-right {
-    float: right;
-}
-
-.header img.cars {
-    width: 100px;
-}
-
-@media screen and (max-width: 500px) {
-    .header-right {
-        float: none;
-    }
-}
-
-.card-header {
-    background-color: #d1b8eb;
-}
-
-h5.card-title {
-    color: #462d69;
-}
-
-.results {
-    background-color: #4a2a77;
-}
-
-h1.thanks {
-    background: linear-gradient(180deg, #ffb50f 0%, #ffe9b8 114.86%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-h5.thanks-response {
-    color: white;
-}
-
 :root {
     --header-height: 3rem;
     --nav-width: 68px;
     --first-color: #4723d9;
     --first-color-light: #afa5d9;
     --white-color: #f7f6fb;
-    --body-font: "Nunito", sans-serif;
+    --body-font: "Poppins", sans-serif;
     --normal-font-size: 1rem;
     --z-fixed: 100;
 }
@@ -136,7 +61,7 @@ a {
     left: -30%;
     width: var(--nav-width);
     height: 100vh;
-    background-color: var(--first-color);
+    background: linear-gradient(151.76deg, #BFB1D3 -27.79%, #631ACB 65.96%);
     padding: 0.5rem 1rem 0 0;
     transition: 0.5s;
     z-index: var(--z-fixed);

@@ -22,3 +22,6 @@ Route::get('/form', function () {
 Route::get('/results', function () {
     return view('results');
 });
+Route::get('/admin', function () {
+    return view('admin/index');
+});
