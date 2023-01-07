@@ -45,26 +45,45 @@
     </div>
     <!--Container Main start-->
     <div class="height-100">
-        <h4 class="mb-4 mt-4">Selamat Datang, Admin!</h4>
+        <h4 class="mb-4 mt-4">List Peserta</h4>
         <div class="row">
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Jumlah kehadiran staff intern</h5>
-                        <i class='bx bxs-user nav_icon'></i>
-                        <span class="card-text">1234</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Jumlah kehadiran staff intern</h5>
-                        <i class='bx bxs-user nav_icon'></i>
-                        <span class="card-text">1234</span>
-                    </div>
-                </div>
-            </div>
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+                <tfoot class="table-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </tfoot>
+            </table>
         </div>
     </div>
     <!--Container Main end-->

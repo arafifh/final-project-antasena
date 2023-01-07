@@ -151,3 +151,12 @@ a {
         padding-left: calc(var(--nav-width) + 188px);
     }
 }
+
+.card{
+    margin-bottom: 20px;
+}
+
+.card-text{
+    color: #631ACB;
+    font-weight: 700;
+}
