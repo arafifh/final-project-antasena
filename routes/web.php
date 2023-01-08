@@ -28,3 +28,6 @@ Route::get('/admin', function () {
 Route::get('/admin/list', function () {
     return view('admin/list');
 });
+Route::get('/admin/create', function () {
+    return view('admin/create');
+});
