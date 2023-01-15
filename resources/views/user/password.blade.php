@@ -10,18 +10,22 @@
                     <p class="alert alert-danger">{{ $err }}</p>
                 @endforeach
             @endif
-            <form action="{{ route('login.form') }}" method="POST">
+            <form action="{{ route('password.form') }}" method="POST">
                 @csrf
                 <div class="mb-3">
-                    <label>Email <span class="text-danger">*</span></label>
-                    <input class="form-control" type="email" name="email" value="{{ old('email') }}" />
-                </div>
-                <div class="mb-3">
                     <label>Password <span class="text-danger">*</span></label>
-                    <input class="form-control" type="password" name="password" />
+                    <input class="form-control" type="password" name="old_password" />
                 </div>
                 <div class="mb-3">
-                    <button class="btn btn-primary">Login</button>
+                    <label>New Password <span class="text-danger">*</span></label>
+                    <input class="form-control" type="password" name="new_password" />
+                </div>
+                <div class="mb-3">
+                    <label>New Password Confirmation<span class="text-danger">*</span></label>
+                    <input class="form-control" type="password" name="new_password_confirmation" />
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary">Change</button>
                     <a class="btn btn-danger" href="{{ route('index') }}">Back</a>
                 </div>
             </form>

@@ -2,16 +2,17 @@
 @section('content')
     <div class="row">
         <div class="col-md-6">
-            @if (session('success'))
-                <p class="alert alert-success">{{ session('success') }}</p>
-            @endif
             @if ($errors->any())
                 @foreach ($errors->all() as $err)
                     <p class="alert alert-danger">{{ $err }}</p>
                 @endforeach
             @endif
-            <form action="{{ route('login.form') }}" method="POST">
+            <form action="{{ route('register.form') }}" method="POST">
                 @csrf
+                <div class="mb-3">
+                    <label>Name <span class="text-danger">*</span></label>
+                    <input class="form-control" type="text" name="name" value="{{ old('name') }}" />
+                </div>
                 <div class="mb-3">
                     <label>Email <span class="text-danger">*</span></label>
                     <input class="form-control" type="email" name="email" value="{{ old('email') }}" />
@@ -21,7 +22,11 @@
                     <input class="form-control" type="password" name="password" />
                 </div>
                 <div class="mb-3">
-                    <button class="btn btn-primary">Login</button>
+                    <label>Password Confirmation<span class="text-danger">*</span></label>
+                    <input class="form-control" type="password" name="password_confirm" />
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary">Register</button>
                     <a class="btn btn-danger" href="{{ route('index') }}">Back</a>
                 </div>
             </form>
