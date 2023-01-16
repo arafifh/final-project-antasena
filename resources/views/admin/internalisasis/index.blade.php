@@ -27,17 +27,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($data as $list)
+                    @forelse ($internalisasis as $internalisasi)
                         <tr>
                             <td>{{ ++$i }}</td>
-                            <td>{{ $list->name }}</td>
-                            <td>{{ $list->nrp }}</td>
+                            <td>{{ $internalisasi->name }}</td>
+                            <td>{{ $internalisasi->nrp }}</td>
                             <td>
-                                <form action="{{ route('internalisasis.destroy', $list->id) }}" method="POST">
+                                <form action="{{ route('internalisasis.destroy', $internalisasi->id) }}" method="POST">
                                     <a class="btn btn-info"
-                                        href="{{ route('internalisasis.show', $list->id) }}">Show</a>
+                                        href="{{ route('internalisasis.show', $internalisasi->id) }}">Show</a>
                                     <a class="btn btn-primary"
-                                        href="{{ route('internalisasis.edit', $list->id) }}">Edit</a>
+                                        href="{{ route('internalisasis.edit', $internalisasi->id) }}">Edit</a>
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Delete</button>
@@ -59,7 +59,7 @@
                     </tr>
                 </tfoot>
             </table>
-            {{ $data->links() }}
+            {{ $internalisasis->links() }}
         </div>
     </div>
 @endsection

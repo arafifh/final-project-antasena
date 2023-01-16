@@ -14,8 +14,8 @@ class InternalisasiController extends Controller
      */
     public function index()
     {
-        $data = Internalisasi::latest()->paginate(5);
-        return view('admin.internalisasis.index', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);;
+        $internalisasis = Internalisasi::latest()->paginate(5);
+        return view('admin.internalisasis.index', compact('internalisasis'))->with('i', (request()->input('page', 1) - 1) * 5);;
     }
 
     /**
@@ -57,17 +57,17 @@ class InternalisasiController extends Controller
         return redirect()->route('internalisasis.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
-    public function show(Internalisasi $data)
+    public function show(Internalisasi $internalisasi)
     {
-        return view('admin.internalisasis.show', compact('data'));
+        return view('admin.internalisasis.show', compact('internalisasi'));
     }
 
-    public function edit(Internalisasi $data)
+    public function edit(Internalisasi $internalisasi)
     {
-        return view('admin.internalisasis.edit', compact('data'));
+        return view('admin.internalisasis.edit', compact('internalisasi'));
     }
 
-    public function update(Request $request, Internalisasi $data)
+    public function update(Request $request, Internalisasi $internalisasi)
     {
         //validate form
         $this->validate($request, [
@@ -78,14 +78,14 @@ class InternalisasiController extends Controller
             'subdivision' => 'required',
             'time' => 'required',
         ]);
-        $data->update($request->all());
+        $internalisasi->update($request->all());
 
         return redirect()->route('internalisasis.index')->with(['success' => 'Data Berhasil Diupdate!']);
     }
-    public function destroy(Internalisasi $data)
+    public function destroy(Internalisasi $internalisasi)
     {
         //delete post
-        $data->delete();
+        $internalisasi->delete();
 
         //redirect to index
         return redirect()->route('internalisasis.index')->with(['success' => 'Data Berhasil Dihapus!']);
