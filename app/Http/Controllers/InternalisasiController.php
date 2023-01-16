@@ -15,7 +15,7 @@ class InternalisasiController extends Controller
     public function index()
     {
         $data = Internalisasi::latest()->paginate(5);
-        return view('admin.internalisasis.index', compact('data'));
+        return view('admin.internalisasis.index', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);;
     }
 
     /**
@@ -36,7 +36,7 @@ class InternalisasiController extends Controller
      */
     public function store(Request $request)
     {
-        //validate form
+
         $this->validate($request, [
             'name' => 'required',
             'nrp' => 'required',
@@ -44,7 +44,7 @@ class InternalisasiController extends Controller
             'division' => 'required',
             'subdivision' => 'required',
         ]);
-        //create post
+
         Internalisasi::create([
             'name' => $request->name,
             'nrp' => $request->nrp,
@@ -53,43 +53,24 @@ class InternalisasiController extends Controller
             'subdivision' => $request->subdivision,
             'time' => $request->time,
         ]);
-        //redirect to index
+
         return redirect()->route('internalisasis.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function show(Internalisasi $data)
     {
-        //
+        return view('admin.internalisasis.show', compact('data'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Internalisasi $data)
     {
-        return view('admin.internalisasis.edit',compact('data'));
+        return view('admin.internalisasis.edit', compact('data'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Internalisasi $internalisas)
+    public function update(Request $request, Internalisasi $data)
     {
-         //validate form
-         $this->validate($request, [
+        //validate form
+        $this->validate($request, [
             'name' => 'required',
             'nrp' => 'required',
             'department' => 'required',
@@ -97,24 +78,16 @@ class InternalisasiController extends Controller
             'subdivision' => 'required',
             'time' => 'required',
         ]);
-        //create post
-        Internalisasi::create([
-            'name' => $request->name,
-            'nrp' => $request->nrp,
-            'department' => $request->department,
-            'division' => $request->division,
-            'subdivision' => $request->subdivision,
-            'time' => $request->time,
-        ]);
-        //redirect to index
+        $data->update($request->all());
+
         return redirect()->route('internalisasis.index')->with(['success' => 'Data Berhasil Diupdate!']);
     }
     public function destroy(Internalisasi $data)
     {
-         //delete post
-         $data->delete();
+        //delete post
+        $data->delete();
 
-         //redirect to index
-         return redirect()->route('internalisasis.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        //redirect to index
+        return redirect()->route('internalisasis.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }

@@ -71,3 +71,7 @@ h1.thanks {
 h5.thanks-response{
     color: white;
 }
+
+.d-none {
+    background-color: #631acb;
+}
