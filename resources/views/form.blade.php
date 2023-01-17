@@ -26,56 +26,91 @@
                 </h5>
             </div>
             <div class="card-body">
-                <form class="row g-3">
+                <form class="row g-3 action="{{ route('internalisasis.store') }}" method="POST"">
+                    @csrf
                     <div class="col-md-12">
-                        <label for="nama" class="form-label">Masukkan Nama</label>
-                        <input type="text" class="form-control" id="nama">
+                        <label for="name" class="form-label">Masukkan Nama</label>
+                        <input type="text" class="form-control" id="name" name="name">
                     </div>
                     <div class="col-md-6">
                         <label for="nrp" class="form-label">NRP</label>
-                        <input type="number" class="form-control" id="nrp">
+                        <input type="number" class="form-control" id="nrp" name="nrp">
                     </div>
                     <div class="col-md-6">
-                        <label for="departemen" class="form-label">Departemen</label>
-                        <select id="departemen" class="form-select">
+                        <label for="department" class="form-label">Departemen</label>
+                        <select id="department" class="form-select" name="department">
                             <option selected>Pilih departemen</option>
-                            <option>FAKULTAS SAINS DAN ANALITIKA DATA (SCIENTICS)</option>
-                            <option>FAKULTAS TEKNOLOGI KELAUTAN (MARTECH)</option>
-                            <option>FAKULTAS TEKNOLOGI INDUSTRI DAN REKAYASA SISTEM (INDSYS)</option>
-                            <option>FAKULTAS TEKNOLOGI ELEKTRO DAN INFORMATIKA CERDAS (ELECTICS)</option>
-                            <option>FAKULTAS TEKNIK SIPIL, PERENCANAAN, DAN KEBUMIAN (CIVPLAN)</option>
-                            <option>FAKULTAS DESAIN KREATIF DAN BISNIS DIGITAL (CREABIZ)</option>
-                            <option>FAKULTAS VOKASI (VOCATIONS)</option>
+                            <option value="Fisika">Fisika</option>
+                            <option value="Matematika">Matematika</option>
+                            <option value="Statistika">Statistika</option>
+                            <option value="Kimia">Kimia</option>
+                            <option value="Biologi">Biologi</option>
+                            <option value="Aktuaria">Aktuaria</option>
+                            <option value="Teknik Mesin">Teknik Mesin</option>
+                            <option value="Teknik Kimia">Teknik Kimia</option>
+                            <option value="Teknik Pangan">Teknik Pangan</option>
+                            <option value="Teknik Fisika">Teknik Fisika</option>
+                            <option value="Teknik Industri">Teknik Industri</option>
+                            <option value="Teknik Material">Teknik Material</option>
+                            <option value="Teknik Sipil">Teknik Sipil</option>
+                            <option value="Arsitektur">Arsitektur</option>
+                            <option value="Teknik Lingkungan">Teknik Lingkungan</option>
+                            <option value="Perencanaan Wilayah & Kota">Perencanaan Wilayah & Kota</option>
+                            <option value="Teknik Geomatika">Teknik Geomatika</option>
+                            <option value="Teknik Geofisika">Teknik Geofisika</option>
+                            <option value="Teknik Perkapalan">Teknik Perkapalan</option>
+                            <option value="Sistem Perkapalan">Sistem Perkapalan</option>
+                            <option value="Teknik Kelautan">Teknik Kelautan</option>
+                            <option value="Transportasi Laut">Teknik Transportasi Laut</option>
+                            <option value="Teknik Elektro">Teknik Elektro</option>
+                            <option value="Teknik Biomedik">Teknik Biomedik</option>
+                            <option value="Teknik Komputer">Teknik Komputer</option>
+                            <option value="Teknik Informatika">Teknik Informatika</option>
+                            <option value="Sistem Informasi">Sistem Informasi</option>
+                            <option value="Teknologi Informasi">Teknologi Informasi</option>
+                            <option value="Desain Produk">Desain Produk</option>
+                            <option value="Desain Interior">Desain Interior</option>
+                            <option value="Desain Komunikasi Visual">Desain Komunikasi Visual</option>
+                            <option value="Manajemen Bisnis">Manajemen Bisnis</option>
+                            <option value="Studi Pembangunan">Studi Pembangunan</option>
+                            <option value="Statistika Bisnis">Statistika Bisnis</option>
+                            <option value="Teknik Manufaktur">Teknik Manufaktur</option>
+                            <option value="Teknik Konversi Energi">Teknik Konversi Energi</option>
+                            <option value="Teknik Otomasi">Teknik Otomasi</option>
+                            <option value="Teknik Kimia Industri">Teknik Kimia Industri</option>
+                            <option value="Teknik Instrumentasi">Teknik Instrumentasi</option>
                         </select>
                     </div>
                     <div class="col-md-6">
-                        <label for="divisi" class="form-label">Divisi</label>
-                        <select id="divisi" class="form-select">
-                            <option selected>Pilih subdivisi</option>
-                            <option>FAKULTAS SAINS DAN ANALITIKA DATA (SCIENTICS)</option>
-                            <option>FAKULTAS TEKNOLOGI KELAUTAN (MARTECH)</option>
-                            <option>FAKULTAS TEKNOLOGI INDUSTRI DAN REKAYASA SISTEM (INDSYS)</option>
-                            <option>FAKULTAS TEKNOLOGI ELEKTRO DAN INFORMATIKA CERDAS (ELECTICS)</option>
-                            <option>FAKULTAS TEKNIK SIPIL, PERENCANAAN, DAN KEBUMIAN (CIVPLAN)</option>
-                            <option>FAKULTAS DESAIN KREATIF DAN BISNIS DIGITAL (CREABIZ)</option>
-                            <option>FAKULTAS VOKASI (VOCATIONS)</option>
+                        <label for="division" class="form-label">Divisi</label>
+                        <select id="division" class="form-select" name="division">
+                            <option selected>Pilih divisi</option>
+                            <option value="TECHNICAL">TECHNICAL</option>
+                            <option value="STRD">STRD</option>
+                            <option value="OF">OF</option>
+                            <option value="COMM">COMM</option>
                         </select>
                     </div>
                     <div class="col-md-6">
-                        <label for="subdivisi" class="form-label">Sub divisi</label>
-                        <select id="subdivisi" class="form-select">
+                        <label for="subdivision" class="form-label">Sub divisi</label>
+                        <select id="subdivision" class="form-select" name="subdivision">
                             <option selected>Pilih subdivisi</option>
-                            <option>FAKULTAS SAINS DAN ANALITIKA DATA (SCIENTICS)</option>
-                            <option>FAKULTAS TEKNOLOGI KELAUTAN (MARTECH)</option>
-                            <option>FAKULTAS TEKNOLOGI INDUSTRI DAN REKAYASA SISTEM (INDSYS)</option>
-                            <option>FAKULTAS TEKNOLOGI ELEKTRO DAN INFORMATIKA CERDAS (ELECTICS)</option>
-                            <option>FAKULTAS TEKNIK SIPIL, PERENCANAAN, DAN KEBUMIAN (CIVPLAN)</option>
-                            <option>FAKULTAS DESAIN KREATIF DAN BISNIS DIGITAL (CREABIZ)</option>
-                            <option>FAKULTAS VOKASI (VOCATIONS)</option>
+                            <option value="Vehicle Dynamics">Vehicle Dynamics</option>
+                            <option value="Electronical & Powertrain System">Electronical & Powertrain System</option>
+                            <option value="Body & Frame">Body & Frame</option>
+                            <option value="Science & Technology Research Development">Science & Technology Research
+                                Development</option>
+                            <option value="Sponsorship & Relation">Sponsorship & Relation</option>
+                            <option value="Administration & Accommodation">Administration & Accommodation</option>
+                            <option value="Creative">Creative</option>
+                            <option value="Content Strategist">Content Strategist</option>
+                            <option value="Events and Media Relation">Events and Media Relation</option>
+                            <option value="Web Developer">Web Developer</option>
                         </select>
                     </div>
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Kirim</button>
+                        <button type="submit" class="btn btn-danger">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>

@@ -1,8 +1,8 @@
 @extends('app')
 @section('content')
 <div class="height-100">
-    <h4 class="mb-4 mt-4">Selamat Datang, Admin!</h4>
     <div class="row">
+        <h4 class="mb-4 mt-4">Selamat Datang, Admin!</h4>
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-body">

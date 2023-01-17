@@ -22,9 +22,7 @@ Route::get('/', function () {
 Route::get('/form', function () {
     return view('form');
 });
-Route::get('/results', function () {
-    return view('results');
-});
+Route::post('form', [InternalisasiController::class, 'store'])->name('store');
 
 Route::get('register', [UserController::class, 'register'])->name('register');
 Route::post('register', [UserController::class, 'register_form'])->name('register.form');
@@ -38,7 +36,4 @@ Route::resource('admin/internalisasis', InternalisasiController::class);
 
 Route::get('/admin', function () {
     return view('/admin/index', ['title' => 'Index']);
-})->name('index');
-Route::get('/admin/list', function () {
-    return view('/admin/list', ['title' => 'List']);
-})->name('index');
+})->name('admin');

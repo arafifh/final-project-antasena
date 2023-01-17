@@ -22,16 +22,16 @@
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div>
-                <a href="#" class="nav_logo">
+                <a href="{{ route('admin') }}" class="nav_logo">
                     <i class='bx bx-layer nav_logo-icon'></i>
                     <span class="nav_logo-name">Antasena</span>
                 </a>
                 <div class="nav_list">
-                    <a href="{{ route('index') }}" class="nav_link active">
+                    <a href="{{ route('admin') }}" class="nav_link {{ (request()->is('admin')) ? 'active' : '' }}">
                         <i class='bx bx-grid-alt nav_icon'></i>
                         <span class="nav_name">Dashboard</span>
                     </a>
-                    <a href="{{ route('internalisasis.index') }}" class="nav_link">
+                    <a href="{{ route('internalisasis.index') }}" class="nav_link {{ (request()->is('admin/internalisasis*')) ? 'active' : '' }}">
                         <i class='bx bx-user nav_icon'></i>
                         <span class="nav_name">Users</span>
                     </a>

@@ -54,7 +54,7 @@ class InternalisasiController extends Controller
             'time' => $request->time,
         ]);
 
-        return redirect()->route('internalisasis.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return view('results');
     }
 
     public function show(Internalisasi $internalisasi)

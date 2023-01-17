@@ -1,29 +1,19 @@
 @extends('app')
 @section('content')
     <div class="height-100">
-        <div class="mb-3 float-right">
-            <div class="btn-group">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown button
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </div>
-            </div>
+        <div class="row">
+            <h4 class="mb-4 mt-4">List Peserta Internalisasi</h4>
         </div>
         <div class="row">
             <table class="table table-striped table-hover">
                 <thead class="table-dark">
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">NRP</th>
+                        <th scope="col">Subdivisi</th>
+                        <th scope="col">Waktu</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,8 +22,10 @@
                             <td>{{ ++$i }}</td>
                             <td>{{ $internalisasi->name }}</td>
                             <td>{{ $internalisasi->nrp }}</td>
+                            <td>{{ $internalisasi->subdivision }}</td>
+                            <td>{{ $internalisasi->time }}</td>
                             <td>
-                                <form action="{{ route('internalisasis.destroy', $internalisasi->id) }}" method="POST">
+                                <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('internalisasis.destroy', $internalisasi->id) }}" method="POST">
                                     <a class="btn btn-info"
                                         href="{{ route('internalisasis.show', $internalisasi->id) }}">Show</a>
                                     <a class="btn btn-primary"
@@ -53,9 +45,11 @@
                 <tfoot class="table-dark">
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">NRP</th>
+                        <th scope="col">subdivisi</th>
+                        <th scope="col">Waktu</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </tfoot>
             </table>
