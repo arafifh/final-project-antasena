@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Internalisasi;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -9,6 +10,13 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public function logged_in()
+    {
+        $internalisasidata = Internalisasi::count();
+        $userdata = User::count();
+        return view('admin/index')->with('internalisasidata', $internalisasidata)->with('userdata', $userdata);
+    }
+    
     public function register()
     {
         $data['title'] = 'Register';

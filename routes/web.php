@@ -34,6 +34,4 @@ Route::get('logout', [UserController::class, 'logout'])->name('logout');
 
 Route::resource('admin/internalisasis', InternalisasiController::class);
 
-Route::get('/admin', function () {
-    return view('/admin/index', ['title' => 'Index']);
-})->name('admin');
+Route::get('/admin', [UserController::class, 'logged_in'])->name('admin');
